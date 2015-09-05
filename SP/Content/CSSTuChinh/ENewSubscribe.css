@@ -1,0 +1,95 @@
+﻿.Div1 {
+    margin-top: 40px;
+}
+
+.DivAllSub {
+  
+    border: solid 1px rgba(0,0,0,.2);
+    border-radius: 5px;
+}
+
+.Div2 {
+    margin: 5px;
+    font-size: 14px;
+    margin-top:-15px;
+    margin-bottom:10px;
+}
+
+.Div3 {
+    height: 50px;
+    float: left;
+    margin-left: 5px;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+    width: 120px;
+}
+
+.Div4 {
+    height: 50px;
+    border-bottom: solid 1px;
+    width: 360px;
+    float: left;
+}
+
+.Div6 {
+    height: 60px;
+    float: left;
+    margin-left: 5px;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+    width: 120px;
+}
+
+.Div7 {
+    height: 60px;
+    border-bottom: solid 1px;
+    width: 360px;
+    float: left;
+}
+.Span1 {
+    margin-top: 10px;
+    text-align: right;
+    margin-right: 3px;
+    color: blue;
+    font-weight: bold;
+}
+
+.Span2 {
+    margin-top: 10px;
+    text-align: right;
+    margin-right: 3px;
+    color: rgba(0,0,0,.2);
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.Span3 {
+    margin-top: 10px;
+    text-align: right;
+    margin-right: 3px;
+    font-weight: bold;
+}
+
+#EmailSubcribe {
+    width: 270px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+#Clear{
+    margin-right:10px;
+}
+.Div5{
+    margin-top:180px;
+    margin-left:20px;
+    margin-bottom:20px;
+}
+.LoiEmail{
+    color:red;
+    margin-left:7px;
+}
+.Div10{
+    color:blue;
+    font-size:20px;
+    margin-bottom:-20px;
+    margin-left:10px;
+}

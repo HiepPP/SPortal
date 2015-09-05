@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SetPortal.Models.Enew>
+<fieldset class="AllGroup">
+    <legend><i class="fa fa-unlock-alt" id="IconLogin"></i>e-NEWS</legend>
+
+    @foreach (var item in Model)
+    {
+    <a href="@Url.Action("DetailEnew","ENew", new { id = item.EnewsID })">@item.EnewsTitleM</a>
+       <br />
+        <span>@item.EnewsContentM<br /></span>
+    }
+    <div style="margin-left:140px;"><a style="color: orange;font-weight:normal" href="/ENew/HomeEnew">>>More</a></div>
+    <i class="fa fa-caret-right"></i><a href="/ENew/Subscribe">Subscribe e-News</a><br />
+    <i class="fa fa-caret-right"></i><a href="/Enew/UnSubscribe">Unsubscribe e-News</a>
+</fieldset>
+

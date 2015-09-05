@@ -1,0 +1,40 @@
+﻿@model SetPortal.Models.Enew
+@{
+    ViewBag.Title = "SuaEnew";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/AddEnew.css" rel="stylesheet" />
+<script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>tinymce.init({ selector: 'textarea' });</script>
+@using (Html.BeginForm())
+{
+    <div class="Divalladdenew">
+        <div class="alldong1"><div class="dong1">Publish Date:</div><div class="dongdate"><input type="date" name="ngayxuatban"/></div></div>
+        <div class="alldong1"><div class="dong1">End Date:</div><div class="dongdate"><input type="date" name="ngayketthuc" /></div></div>
+
+        <div class="alldong1"><div class="dong1">EnewTitle:</div> <div class="dong2">@Html.TextBoxFor(model => model.EnewsTitle, new { @class = "form-control" })</div></div>
+        <div class="alldong2"><div class="dong1">EnewContent:</div> <div class="dong2">@Html.TextAreaFor(model => model.EnewsContent)</div></div>
+
+        <div class="alldong1"><div class="dong1">EnewTitle In Bahasa Malaysia:</div> <div class="dong2">@Html.TextBoxFor(model => model.EnewsTitleM, new { @class = "form-control" })</div></div>
+        <div class="alldong2"><div class="dong1">EnewContent In Bahasa Malaysia:</div> <div class="dong2">@Html.TextAreaFor(model => model.EnewsContentM)</div></div>
+        @Html.HiddenFor(n=>n.EnewsID)
+        
+            <div class="nutsubmitenew">
+                <input type="submit" id="submitadd" class="btn btn-primary" value="Submit" />
+                <a href="/Admin/QuanLyEnew"><input type="button" id="submitadd" class="btn btn-primary" value="Cancel" /></a>
+                
+                <input type="button" id="nutClear" class="btn btn-primary" value="Clear" />
+            </div>
+            <div>@ViewBag.thongbao</div>
+    </div>
+}
+<script type="text/javascript">
+    $('#nutClear').click(function () {
+        $('#EnewsTitle').val('')
+        $('#EnewsTitleM').val('')
+
+
+    })
+</script>
+

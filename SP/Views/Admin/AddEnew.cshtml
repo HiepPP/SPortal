@@ -1,0 +1,70 @@
+﻿@model SetPortal.Models.Enew
+@{
+    ViewBag.Title = "AddEnew";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/SuaEnew.css" rel="stylesheet" />
+<script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>tinymce.init({ selector: 'textarea' });</script>
+@using (Html.BeginForm())
+{
+    <div class="Divalladdenew">
+        <div class="alldong1"><div class="dong1">Publish Date:</div><div class="dongdate"><input id="dayxuatban" type="date" name="ngayxuatban"/><span id="loingayxuatban" class="thongbaoloi"></span></div></div>
+        <div class="alldong1"><div class="dong1">End Date:</div><div class="dongdate"><input id="dayketthuc" type="date" name="ngayketthuc" /><span id="loingayhethan" class="thongbaoloi"></span></div></div>
+
+        <div class="alldong1"><div class="dong1">EnewTitle:</div> <div class="dong2">@Html.TextBoxFor(model => model.EnewsTitle, new { @class = "form-control" })<span class="thongbaoloi2">@Html.ValidationMessageFor(model => model.EnewsTitle)</span></div></div>
+        <div class="alldong2"><div class="dong1">EnewContent:</div> <div class="dong2">@Html.TextAreaFor(model => model.EnewsContent)<span class="thongbaoloi2">@Html.ValidationMessageFor(model => model.EnewsContent)</span></div></div>
+
+        <div class="alldong1"><div class="dong1">EnewTitle In Bahasa Malaysia:</div> <div class="dong2">@Html.TextBoxFor(model => model.EnewsTitleM, new { @class = "form-control" })<span class="thongbaoloi2">@Html.ValidationMessageFor(model => model.EnewsTitleM)</span></div></div>
+        <div class="alldong2"><div class="dong1">EnewContent In Bahasa Malaysia:</div> <div class="dong2">@Html.TextAreaFor(model => model.EnewsContentM)<span class="thongbaoloi2">@Html.ValidationMessageFor(model => model.EnewsContentM)</span></div></div>
+       <div><span id="loikiemtra"></span></div>
+        
+            <div class="nutsubmitenew">
+                <input type="submit" id="submitadd" class="btn btn-primary" value="Submit" />
+                
+                <a href="/Admin/QuanLyEnew"><input type="button" id="submitadd" class="btn btn-primary" value="Cancel" /></a>
+                <input type="button" id="buttonclear" class="btn btn-primary" value="Clear" />
+            </div>
+            <div>@ViewBag.thongbao</div>
+    </div>
+}
+<script type="text/javascript">
+    
+    $('#buttonclear').click(function () {
+        
+        $('#dayxuatban').val('')
+        $('#dayketthuc').val('')
+        $('#EnewsTitle').val('')
+        $('#EnewsContent').val('')
+        $('#EnewsTitleM').val('')
+        $('#EnewsContentM').val('')
+    })
+    $('#submitadd').click(function () {
+        var loi = 0;
+        if($('#dayxuatban').val().length<1)
+        {
+            loi++;
+            $('#loingayxuatban').text('Vui long chon ngay!')
+        }
+        else {
+            $('#loingayxuatban').text('')
+        }
+        if ($('#dayketthuc').val().length < 1) {
+            loi++;
+            $('#loingayhethan').text('Vui long chon ngay!')
+        }
+        else {
+            $('#loingayhethan').text('')
+        }
+        if(loi!=0)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+
+
+    })
+</script>

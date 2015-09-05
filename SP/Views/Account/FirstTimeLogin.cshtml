@@ -1,0 +1,136 @@
+﻿@model SetPortal.Models.ViewModel.FirstTimeLoginViewModel
+@{
+    ViewBag.Title = "FirstTimeLogin";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    <link href="~/Content/CSSTuChinh/FirstTimeLogin.css" rel="stylesheet" />
+}
+<h2>First Time Login</h2>
+<style>
+    .DivLeft {
+        display: none;
+    }
+</style>
+@*Chèn Link Nivo slider*@
+<link href="~/Content/Nivo-Slider-master/nivo-slider.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Content/Nivo-Slider-master/jquery.nivo.slider.js"></script>
+<script src="~/Content/Nivo-Slider-master/jquery.nivo.slider.pack.js"></script>
+<div class="warpfirstlogin">
+    <div class="divthu2">
+        <div id="slider" class="nivoSlider">
+            <img src="~/Content/CSSTuChinh/img/HinhLogin.jpg" />
+            <img src="~/Content/CSSTuChinh/img/login2.jpg" />
+            <img src="~/Content/CSSTuChinh/img/login3.jpg" />
+        </div>
+    </div>
+    <div class="divRightFirst">
+        @using (Html.BeginForm("FirstTimeLogin","Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="question">
+                <span>Please answer at least one (1) of the question below. Maximum selection is three (3) question</span><br />
+                
+                <div class="select1">
+                    <span class="SelectAnswer">
+                        @Html.DropDownList("Select1","-Select hint question-")
+                        @*@Html.DropDownListFor(x => x.Question11, (IEnumerable<SelectListItem>)ViewBag.Select1, "-Select hint question-")*@
+                    </span>
+                    @Html.TextBoxFor(x => x.Answer1)<span id="loiAnswer"></span>
+                    @*<input type="text" name="Answer1" id="Answer1" />*@
+                </div>
+
+                <div class="select2">
+                    <span class="SelectAnswer">
+                        @Html.DropDownList("Select2", "-Select hint question-")
+                    </span>
+                    @Html.TextBoxFor(x => x.Answer2)<br /><span id="loiAnswer2" class="loiAnswer"></span>
+                </div>
+
+                <div class="select3">
+                    <span class="SelectAnswer">
+                        @Html.DropDownList("Select3", "-Select hint question-")
+                    </span>
+                    @Html.TextBoxFor(x => x.Answer3)<br /><span id="loiAnswer3" class="loiAnswer"></span>
+                </div>
+            </div>
+            <br /><br>
+    <div class="password">
+        <br />
+        <span>Please key in your password and new password. The new password must be different from the old password.</span>
+        <div class="divThongBao" id="divThongBao">
+            @ViewBag.ThongBao
+        </div>
+        <div class="divOldPass">Old Password    @Html.PasswordFor(model => model.UserPassword)<span id="loiOldPass">@Html.ValidationMessageFor(model=>model.UserPassword)</span></div>
+        <div class="divNewPass">New Password    @Html.PasswordFor(x=>x.NewPassword)<span id="loiNewPass">@Html.ValidationMessageFor(model => model.NewPassword)</span></div>
+        <div class="divComfirm">Comfirm New Password    @Html.PasswordFor(x=>x.ConfirmPassword)<span id="loiReNewPass">@Html.ValidationMessageFor(model => model.ConfirmPassword)</span></div>
+        <br />
+        <div class="divSubmit"><input class="nutsubmit" type="submit" id="Submit" value="Submit" /><input class="nutsubmit" type="button" value="Cancel" /><input id="clearfirst" class="nutsubmit" type="button" value="Clear" /></div>
+    </div>
+        }
+    </div>
+    <span>@ViewBag.loi</span>
+    <div style="clear:both"></div>
+</div>
+@*Script clear*@
+<script type="text/javascript">
+    $('#clearfirst').click(function () {
+        $('#Answer1').val('')
+        $('#Answer2').val('')
+        $('#Answer3').val('')
+        $('#UserPassword').val('')
+        $('#NewPassword').val('')
+        $('#ConfirmPassword').val('')
+    })
+
+</script>
+@*Script kiem tra loi nhap lieu*@
+<script type="text/javascript">
+    $('#Submit').click(function () {
+        var loi = 0;
+
+        //Kiem tra cau tra loi
+        if (($('#Answer1').val().length < 6) || ($('#Answer1').val().length > 50)) {
+            $('#loiAnswer').text('Cau tra loi phải >6 và <50 ký tự!')
+            loi++
+        }
+        else {
+            $('#loiAnswer').text('')
+        }
+        if (($('#Answer2').val().length < 6) || ($('#Answer2').val().length > 50)) {
+            $('#loiAnswer2').text('Cau tra loi phải >6 và <50 ký tự!')
+            loi++
+        }
+        else {
+            $('#loiAnswer').text('')
+        }
+        if (($('#Answer3').val().length < 6) || ($('#Answer3').val().length > 50)) {
+            $('#loiAnswer3').text('Cau tra loi phải >6 và <50 ký tự!')
+            loi++
+        }
+        else {
+            $('#loiAnswer').text('')
+        }
+        //valid pass
+        //Tong hop loi
+        if (loi == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+</script>
+
+@*Script Chạy nivoslider*@
+<script type="text/javascript">
+    $(window).load(function () {
+        //Vo hieu hoa Select
+        //$('#Select2').attr('disabled', true);
+       // $('#Select3').attr('disabled', true);
+        $('#slider').nivoSlider({
+            controlNav: false,               // 1,2,3... navigation
+            nextText: '',
+            prevText: ''
+        });
+    });
+</script>

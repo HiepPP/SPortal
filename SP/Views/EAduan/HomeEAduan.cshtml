@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "HomeEAduan";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/EAduan.css" rel="stylesheet" />
+<div>Home>e-Aduan</div>
+<div class="DivAllEAduan">
+    <div class="DivMargin">
+        <div class="DiveAduan">e-Aduan</div>
+        <hr />
+        <div class="DivText">Please select the followin categories of complaint and submit your complaint to us. We will try our best to handle the compliant you've made. Thank you</div>
+        <br />
+        <div>
+            <div class="DivTitleEaduan"><a href="/EAduan/Reporting/">Information Reporting Complaint</a></div>
+            <div>If you have problem to report to adherence to GST rules and regulations, please log your complaint in this section.</div>
+            <br />
+        </div>
+        <div>
+            <div class="DivTitleEaduan"><a href="#">Complaint on KDRM Officer</a></div>
+            <div>If you have problem or incident to report about KDRM Officer, you can log your complaint in this section</div>
+            <br />
+        </div>
+        <div>
+            <div class="DivTitleEaduan"><a href="#">Complaint on GST system</a></div>
+            <div>If you have difficolities or problems with GST system, manual or online, please log your complaint in this section</div>
+            <br />
+        </div>
+        <div>
+            <div class="DivTitleEaduan"><a href="#">General/Services Complaint</a></div>
+            <div>If you encountered problem and dissatisfaction with KDRM services provided to you or any other GST related problem, please log your complaint in this section</div>
+            <br />
+        </div>
+    </div>
+</div>
+<div style="margin-left:520px;margin-top:-10px;">
+    @Html.Partial("~/Views/MenuLeftAndRight/MenuRightPartial.cshtml")
+</div>

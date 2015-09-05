@@ -1,0 +1,8 @@
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\bin\SetPortal.dll.config
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\bin\SetPortal.dll
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\bin\SetPortal.pdb
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\obj\Debug\SetPortal.dll
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\obj\Debug\SetPortal.pdb
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\bin\PagedList.xml
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\bin\PagedList.Mvc.xml
+D:\029_HCM_HUTECH_01_NET_CF\SetPortal\SetPortal\obj\Debug\SetPortal.csprojResolveAssemblyReference.cache

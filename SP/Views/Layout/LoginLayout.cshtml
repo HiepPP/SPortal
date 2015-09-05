@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSSTuChinh/NguoiDungLayoutCss.css" rel="stylesheet" />
+    <link href="~/Content/Fontfortawesome/css/font-awesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <center>
+        <div class="DivToanTrang">
+            @*Day la Hinh Logo*@
+            <div class="HinhLogo"></div>
+            @*Day la Menu chinh*@
+            <div class="Divmenu">
+                <div class="MenuChinh">
+                    <a href="~/Home/Index">Home Melayu Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Online Help</a>
+                    <a href="#">Site Map</a>
+                </div>
+                <div class="txtTimKiem">
+                    Search
+                    <select class="SelectSearch">
+                        <option value="volvo">Apple</option>
+                        <option value="saab">Banana</option>
+                        <option value="mercedes">Lemon</option>
+                        <option value="audi">Orange</option>
+                    </select>
+                    For
+                    @Html.TextBox("txttimkiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhap tu khoa can tim" })
+                    <button class="BtnTimKiem">Go</button>
+                </div>
+            </div>
+            <br />
+            @*Day la Div menu2*@
+            <div class="Divmenu2">
+                <div class="NgayThang"> Tuesday, 24 June 2008, 11:47 PM</div>
+                <a class="AFAQ" href="/FAQ/HomeFAQ">FAQ</a>
+                <a class="AGuide" href="/EGuild/HomeEGuild">e-Guide</a>
+                <a class="AInfo" href="#">GST Info</a>
+            </div>
+            <br />
+            <div>
+                @RenderBody()
+            </div>
+            @*Day la phan Bottom cua trang web*@
+            <div class="DivBottom">
+                <div class="TheADivBottom">
+                    <a href="#">About This Site</a>
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="RightDivBottom">
+                    Visit KDRM Official Website<br />
+                    Copyright 2008 Portal Malaysia GST
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>

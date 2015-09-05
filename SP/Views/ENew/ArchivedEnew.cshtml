@@ -1,0 +1,64 @@
+﻿@using SetPortal.Models
+@model List<Enew>
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/ArchivedEnew.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+ 
+@using (Html.BeginForm())
+{
+    <div class="TitleArchi"><a href="/Home/Index">Home</a>><a href="/ENew/ArchivedEnew">Archived e-News</a></div>
+    <div class="Alldiv">
+        <div class="ArchivedTitle">Archived e-News</div>
+        <div class="AllArchi">
+            <div class="Div1Year">Chon Nam:</div><div class="DivYear">@Html.DropDownList("allyear", (IEnumerable<SelectListItem>)ViewBag.allyear, "-Năm-", new { @class = "form-control" })<span id="loiyear"></span></div><br />
+            <div class="Div1Month">Chon Thang:</div><div class="DivMonth">@Html.DropDownList("allmonth", (IEnumerable<SelectListItem>)ViewBag.allmonth, "-Tháng-", new { @class = "form-control" })<span id="loimonth"></span></div><br />
+            <div><input type="submit" value="Search" id="Search" /></div><br />
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div>@ViewBag.thongbao</div>
+                    if (item.EnewsTitle.Length < 50)
+                    {
+                        <div class="NDEnew"><i class="fa fa-caret-right"></i>@Html.ActionLink(item.EnewsTitle, "DetailEnew", new { id = item.EnewsID })@item.PublishDate</div><br />
+                    }
+                    else
+                    {
+                        <div class="NDEnew"><i class="fa fa-caret-right"></i>@Html.ActionLink(item.EnewsTitle.Substring(0, 50), "DetailEnew", new { id = item.EnewsID })... @item.PublishDate</div><br />
+                    }
+                }
+                if (Model.Count == 0)
+                {
+                    <div>Không tìm thấy tin tức nào!</div>
+                }
+            }
+
+
+        </div>
+    </div>
+}
+
+
+
+
+<script type="text/javascript">
+    $('#Search').click(function () {
+        var loi = 0;
+        if ($('#allyear').val() == '') {
+            $('#loiyear').text('Vui long chon nam!')
+            loi++;
+        }
+        else {
+            $('#loiyear').text('')
+        }
+        
+        if (loi != 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    })
+</script>

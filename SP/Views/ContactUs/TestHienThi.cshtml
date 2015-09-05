@@ -1,0 +1,16 @@
+﻿@using SetPortal.Models;
+@model List<ContactWithU>
+@{
+    ViewBag.Title = "TestHienThi";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>TestHienThi</h2>
+@foreach(var item in Model)
+{
+    
+    <div>Mã ID: @Html.Raw(item.ID)</div>
+    <div>Tên Người Gửi: @item.Name</div>
+    <div>Nội Dung: @item.ContentEmail</div>
+    <div><img src="@Url.Content("~/HinhAnhContact/"+item.HinhAnh)"width="80"height="120"/></div>
+}

@@ -1,0 +1,64 @@
+﻿@using SetPortal.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Enew>
+@{
+    ViewBag.Title = "QuanLyENew";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/QuanLyEnew.css" rel="stylesheet" />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="DivAllQLE">
+    <h2>QuanLyENew</h2>
+    <div class="DivThemEGuild"><a href="/Admin/AddENew"><input type="button" class="btn btn-primary" value="Thêm mới ENew" /></a></div>
+    <div class="divnoidung2"> e-News Titles</div><div class="divten2">Publish Day</div><div class="divten2">End Day</div><br />
+
+    <br />
+    @foreach (var item in Model)
+    {
+        
+        if (item.EnewsTitle.Length < 50)
+        {
+            <div class="divnoidung" id="TenSach" title="@item.EnewsTitle">@item.EnewsTitle.</div>
+        }
+        else
+        {
+            <div class="divnoidung" id="TenSach" title="@item.EnewsTitle"> @item.EnewsTitle.Substring(0, 50) ...</div>
+        }
+        
+        <div class="divstt">@item.PublishDate</div>
+        <div class="divten">@item.EndDate</div>
+    <div class="nutbutton"><span class="nutSuaeguild">@Html.ActionLink("Sua", "SuaENew", new { id = item.EnewsID })</span>@Html.ActionLink("Xoa", "XoaEnew", new { id = item.EnewsID })</div>
+    }
+
+
+
+
+</div>
+<div style="clear:both"></div>
+@* Tạo link liên kết các trang*@
+<div class="DivPage">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("QuanLyENew", new { page = page }))
+    </div>
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+@*@using SetPortal.Models
+    @{
+        ViewBag.Title = "View";
+        Layout = "~/Views/Layout/LoginLayout.cshtml";
+    }
+    <link href="~/Content/CSSTuChinh/QLEnew.css" rel="stylesheet" />
+    <div class="DivTitQLEnew"><a href="/Home/Index">Home</a>><a href="/Enew/HomeEnew">e-News</a>><a href="/Admin/QuanLyEnew">Manage e-News</a></div>
+    <div class="AllQLENew">
+        <div>Manage e-News</div>
+        <hr />
+        <div class="DivSearchEnew"><span class="Search1">Search</span> @Html.TextBox("abc")<input type="button" value="GO"id="Search" class="buttonGo" /></div>
+        <div>Please click on Add button to add a new e-News. To update an e-news, select a related e-news and click on Update button.</div>
+        <div>To delete e-News, select one or more e-News Title and click on Delete button.</div>
+    </div>*@

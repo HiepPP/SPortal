@@ -1,0 +1,66 @@
+﻿@model SetPortal.Models.FAQ
+
+@{
+    ViewBag.Title = "AddFAQ";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/AddEguild.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@using (Html.BeginForm())
+{
+    <div>
+        <div class="TitleAddFAQ">Thêm mới FAQ</div><br />
+        <div>
+            <div class="chude">Chủ đề của FAQ: </div><div class="chude1">@Html.DropDownList("MaChuDeFAQ", (IEnumerable<SelectListItem>)ViewBag.MaChuDeFAQ,"", new {@class="form-control" })<span id="loimachude"></span></div>
+        </div><br /><br /><br />
+       
+        <div>
+            <div class="ndEguild">Câu hỏi của FAQ: </div><div class="ndEguild1">@Html.TextAreaFor(model => model.Question, new { @class = "form-control" })<span id="loiquestionsadd"></span></div>
+        </div><br /><br /><br /><br /><br /><br />
+        <div>
+            <div class="ndEguild">Trả lời của FAQ: </div><div class="ndEguild1">@Html.TextAreaFor(model => model.Answer, new { @class = "form-control" })<span id="loianswerAdd"></span></div>
+        </div><br /><br /><br /><br /><br /><br /><br /><br />  
+
+            <div class="submiteguild">
+                <input type="submit" id="submitadd" class="btn btn-primary" value="Create" /><a href="/Admin/QuanLyFAQ"><input  class="btn btn-primary" id="quayve" type="button" value="Quản lý FAQ" /></a>
+            </div>
+    </div>
+}
+<script type="text/javascript">
+    $('#submitadd').click(function () {
+        var loi = 0;
+        //kiem tra MaChuDe
+        if($('#MaChuDeFAQ').val() == '')
+        {
+            loi++;
+            $('#loimachude').text('Vui lòng chọn chủ đề!')
+        }
+        else {
+            $('#loimachude').text('')
+        }
+        //Kiem tra Question
+        if ($('#Question').val().length < 6)
+        {
+            loi++
+            $('#loiquestionsadd').text('Câu hỏi phải lớn hơn 6 ký tự!')
+        }
+        else {
+            $('#loiquestionsadd').text('')
+        }
+        //Kiem tra Answer
+        if ($('#Answer').val().length < 6) {
+            loi++
+            $('#loianswerAdd').text('Câu trả lời phải lớn hơn 6 ký tự!')
+        }
+        else {
+            $('#loianswerAdd').text('')
+        }
+        if(loi==0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+</script>

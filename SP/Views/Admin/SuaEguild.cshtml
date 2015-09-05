@@ -1,0 +1,44 @@
+﻿@model SetPortal.Models.EGuide
+@{
+    ViewBag.Title = "SuaItem";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/SuaEGuild.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<h2>SuaItem</h2>
+@using (Html.BeginForm())
+{
+    <div class="DivChuDe2">Chủ đề:</div><div class="DivChuDe">@Html.DropDownList("MaChuDeEguide", (IEnumerable<SelectListItem>)ViewBag.MaChuDeEguide, "", new { @class = "form-control" })</div><span id="loichude"></span><br /><br />
+    <div class="DivChuDe2">Nội dung:</div><div class="DivNoiDungSua">@Html.TextAreaFor(model => model.Contents, new {@class="form-control" })</div><span id="loinoidung"></span>
+    <div>@Html.HiddenFor(model => model.FileName)</div>
+    <div>@Html.HiddenFor(model => model.EGuildID)</div><br /><br /><br /><br /><br />
+    <div class="submitadd"><input id="submitsuaeguild" class="btn btn-primary" type="submit" value="Update" /><a href="/Admin/QuanLyEguild"><input class="btn btn-primary" id="quayve" type="button" value="Quản lý Eguild" /></a></div>
+}
+<script type="text/javascript">
+    $('#submitsuaeguild').click(function () {
+        var loi = 0;
+        if ($('#MaChuDeEguide').val() == '') {
+            $('#loichude').text('Vui long chon chu de!')
+            loi++;
+        }
+        else {
+            $('#loichude').text('')
+        }
+        if ($('#Contents').val().length <6) {
+            $('#loinoidung').text('Vui long nhap 6 ky tu tro len!')
+            loi++;
+        }
+        else {
+            $('#loinoidung').text('')
+        }
+        if(loi == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    })
+</script>
+

@@ -1,0 +1,267 @@
+﻿@model SetPortal.Models.EAduan
+@{
+    ViewBag.Title = "HomeEAduan";
+    Layout = "~/Views/Layout/FAQLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/EAduan.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@using (Html.BeginForm("Reporting", "EAduan", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div>Home>e-Aduan</div>
+    <div class="DivAllEAduan">
+        <div class="DivMargin">
+            <div class="DiveAduan">Information Reporting Complaint</div>
+            <div>Thank you for using e-Aduan. Please provide the following details in order to log your complaint to KDRM. We will try our best to handle your concern on this matter as soon as possible. Thank you.</div>
+            <br />
+            <div>
+                <div class="ComplainName">Complainant's Name</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.ComplaintName, new { @class = "Input1" }) <span id="Loi1"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Email Address</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Email, new { @class = "Input2" }) <span id="Loi2">@Html.ValidationMessageFor(model => model.Email)</span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Contact Number</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Number, new { @class = "Input2" }) <span id="Loi3"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Correspondence Address</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Address, new { @class = "Input1" }) <span id="Loi4"></span></div>
+            </div>
+
+            <div>
+                <div class="ComplainName">Postcode</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Postcode, new { @class = "Input1" }) <span id="Loi5"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Town</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Town, new { @class = "Input1" }) <span id="Loi6"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName"></div>
+                <div class="DivInput">State @Html.DropDownList("IDState","") <span id="Loi13"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Name of Company</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Company, new { @class = "Input1" }) <span id="Loi7"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Location of Company</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.LocationCompany, new { @class = "Input1" }) <span id="Loi8"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Subject/Title</div>
+                <div class="DivInput">@Html.TextBoxFor(model => model.Subject, new { @class = "Input1" }) <span id="Loi9"></span></div>
+            </div>
+            <div>
+                <div class="ComplainName">Complaint</div>
+                <div class="DivInput">@Html.TextAreaFor(model => model.Complaint, new { @class = "Input4" }) <span id="Loi10"></span></div>
+            </div>
+            <div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div>
+                <div class="ComplainName">Add Image:</div>
+                <div class="DivInput"><input type="file" class="InputImage" id="Hinh" name="fileAnh" /> <span id="Loi11"></span></div>
+            </div><br /><br /><br />
+            <div class="DivFile">
+                <div class="ComplainName">Add File:</div>
+                <div class="DivInput"><input type="file" class="InputImage" id="File" name="fileTaiLieu" /> <span id="Loi12"></span></div>
+            </div><br /><br />
+            <div><input type="submit" id="Submit" value="Submit" class="Submit_EAduan" /><a href="/EAduan/HomeEAduan"><input class="Submit_EAduan" type="button" value="Cancel" /></a><input type="button" value="Clear"id="Clear" class="Submit_EAduan" /></div>
+        </div>
+    </div>
+}
+@*Script button Clear*@
+<script type="text/javascript">
+    $('#Clear').click(function () {
+        $('#ComplaintName').val('')
+        $('#Email').val('')
+        $('#Number').val('')
+        $('#Address').val('')
+        $('#Postcode').val('')
+        $('#Town').val('')
+        $('#IDState').val('')
+        $('#Company').val('')
+        $('#LocationCompany').val('')
+        $('#Subject').val('')
+        $('#Complaint').val('')
+        $('#Hinh').val('')
+        $('#File').val('')
+    })
+</script>
+@*Script kiem tra du lieu*@
+<script type="text/javascript">
+    $('#Submit').click(function () {
+        var loi = 0;
+        //Kiem tra Hinh
+        if ($('#Hinh').val().length < 1) {
+            $('#Loi11').text('Vui long chon hinh anh!')
+            loi++
+        }
+
+        else {
+            $('#Loi11').text('')
+        }
+        //Kiem tra File
+        if ($('#File').val().length < 1) {
+            $('#Loi12').text('Vui long chon File!')
+            loi++
+        }
+
+        else {
+            $('#Loi12').text('')
+        }
+        //Kiem tra State
+        if ($('#IDState').val().length < 1) {
+            $('#Loi13').text('Vui long chon State!')
+            loi++
+        }
+
+        else {
+            $('#Loi13').text('')
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#ComplaintName').val().length < 6) {
+            $('#Loi1').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#ComplaintName').val().length > 60) {
+                $('#Loi1').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi1').text('')
+            }
+        }
+        
+        //Kiem tra Name < 6 ky tu
+        if ($('#Number').val().length < 6) {
+            $('#Loi3').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Number').val().length > 60) {
+                $('#Loi3').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi3').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Address').val().length < 6) {
+            $('#Loi4').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Address').val().length > 60) {
+                $('#Loi4').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi4').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Postcode').val().length < 6) {
+            $('#Loi5').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Postcode').val().length > 60) {
+                $('#Loi5').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi5').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Town').val().length < 6) {
+            $('#Loi6').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Town').val().length > 60) {
+                $('#Loi6').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi6').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Company').val().length < 6) {
+            $('#Loi7').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Company').val().length > 60) {
+                $('#Loi7').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi7').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#LocationCompany').val().length < 6) {
+            $('#Loi8').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#LocationCompany').val().length > 60) {
+                $('#Loi8').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi8').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Subject').val().length < 6) {
+            $('#Loi9').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Subject').val().length > 60) {
+                $('#Loi9').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi9').text('')
+            }
+        }
+        //Kiem tra Name < 6 ky tu
+        if ($('#Complaint').val().length < 6) {
+            $('#Loi10').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Complaint').val().length > 60) {
+                $('#Loi10').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#Loi10').text('')
+            }
+        }
+        //Tong hop loi
+        if (loi == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+</script>

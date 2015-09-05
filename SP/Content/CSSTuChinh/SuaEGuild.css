@@ -1,0 +1,64 @@
+﻿#loichude {
+    color: red;
+    float: left;
+    margin-top: 5px;
+}
+
+#loinoidung {
+    color: red;
+    float: left;
+    margin-top: 5px;
+}
+
+#loiquestion {
+    color: red;
+    float: left;
+    margin-top: 5px;
+}
+
+#loianswer {
+    color: red;
+    float: left;
+    margin-top: 5px;
+}
+
+.DivChuDe {
+    float: left;
+}
+
+.DivNoiDungSua {
+    float: left;
+}
+
+#Question {
+    width: 400px;
+    height: 100px;
+}
+
+#Answer {
+    width: 400px;
+    height: 100px;
+}
+
+#Contents {
+    width: 400px;
+    height: 100px;
+}
+
+#submitsuaeguild {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.submitadd {
+    text-align: left;
+    margin-top: 10px;
+    margin-left:70px;
+}
+
+.DivChuDe2 {
+    float: left;
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 60px;
+}

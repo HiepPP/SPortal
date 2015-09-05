@@ -1,0 +1,92 @@
+﻿.chude {
+    float: left;
+    width: 150px;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.ndEguild {
+    float: left;
+    width: 150px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.chude1 {
+    float: left;
+}
+
+.fileeguild1 {
+    float: left;
+}
+
+.ndEguild1 {
+    float: left;
+}
+
+#Question {
+    width: 400px;
+    height: 100px;
+}
+
+#Answer {
+    width: 400px;
+    height: 100px;
+}
+
+.submiteguild {
+    float: left;
+    margin-left: 150px;
+    margin-top:-30px;
+    margin-bottom:10px;
+
+}
+
+.nutsubmit {
+    width: 80px;
+    height: 30px;
+    font-size: 17px;
+    margin-bottom: 135px;
+}
+
+.ndeguild2 {
+    width: 300px;
+    float: left;
+}
+
+#loimachude {
+    color: red;
+    font-size: 14px;
+    float: left;
+}
+
+#loianswerAdd {
+    color: red;
+    font-size: 14px;
+    float: left;
+}
+
+#loiquestionsadd {
+    color: red;
+    font-size: 14px;
+    float: left;
+}
+
+#submitadd {
+    margin-right:20px;
+}
+
+#Contents {
+    width: 400px;
+    height: 100px;
+}
+
+#quayve {
+
+}
+.TitleAddFAQ{
+    
+    font-weight:bold;
+    font-size:20px;
+    color:blue;
+}

@@ -1,0 +1,38 @@
+﻿@model SetPortal.Models.ViewModel.FirstTimeLoginViewModel
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    <link href="~/Content/CSSTuChinh/ChangePassword.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+}
+
+<h2>ChangePass</h2>
+
+<div class="DivAllChange">
+    @using (Html.BeginForm("ChangePass", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="divTitleChange">Change Password</div>
+        <div class="divPleaseChange">Please key in the following details.</div>
+        <div class="divThongBao">@ViewBag.message </div>
+        <div id="loiOldPass" class="divThongBao"></div>
+        <div id="loiNewPass" class="divThongBao"></div>
+        <div id="loiReNewPass" class="divThongBao"></div>
+        <div class="divOldPassChange">Old Password @Html.PasswordFor(x => x.UserPassword)</div><span>@Html.ValidationMessageFor(x => x.UserPassword)</span>
+        <div class="divNewPassChange">New Password @Html.PasswordFor(x => x.NewPassword) <span class="Valid8"></span>@Html.ValidationMessageFor(x => x.NewPassword)</div>
+        <div class="divReNewPassChange">Comfirm New Password @Html.PasswordFor(x => x.ConfirmPassword)<span class="Valid8">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span></div>
+        <div class="divRemindChange">
+            Note: New password must be different from the old password.<br />
+            New password must be different from the consequent last three (3) old passwords.
+        </div>
+        <div class="divSubmitChange"><input id="Submit" type="submit" value="Submit" /><a href="/Home/Index"><input type="button" id="Cancel" value="Cancel" /></a><input type="button" id="Clearchange" value="Clear" /></div>
+    }
+</div>
+<script type="text/javascript">
+    $('#Clearchange').click(function () {
+        $('#UserPassword').val('')
+        $('#NewPassword').val('')
+        $('#ConfirmPassword').val('')
+    })
+
+</script>

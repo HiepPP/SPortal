@@ -1,0 +1,40 @@
+﻿@model PagedList.IPagedList<SetPortal.Models.ViewModel.SearchViewModel>
+@using PagedList.Mvc;
+@using PagedList;
+@*model PagedList.IPagedList<SetPortal.Models.ViewModel.SearchViewModel>*@
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>SearchResult</h2>
+
+@foreach (var item in Model)
+{
+    if (item.Question != null) { 
+    <div style="border:inset;margin:2px;">
+        <span style="color:red"> Question:</span>
+        @item.Question <br />
+        <span style="color:red">Answer:</span>
+        @item.Answer <br />
+        <a href="~/FAQ/HomeFAQ?MaChuDe=@item.MaChuDeFAQ&amp;MaTrang=@item.LoaiChuDeFAQ">Detail</a>
+    </div>
+}
+    else { 
+    <div style="border:inset;margin:2px;">
+        <span style="color:red"> Content:</span>
+        @item.Contents <br />
+        <br />
+    </div>
+}
+}
+@*Tạo link liên kết các trang*@
+@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SearchResult", new { page = page }))
+</div>
+<style>
+        .MenuTrang li {
+            display: inline;
+        }
+</style>

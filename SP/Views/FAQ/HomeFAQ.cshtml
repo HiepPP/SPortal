@@ -1,0 +1,83 @@
+﻿@using SetPortal.Models
+@{
+    ViewBag.Title = "HomeFAQ";
+    Layout = "~/Views/Layout/FAQLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            $("#Divnoidung").remove();
+            var a = $("#keyword").val();
+            $.ajax({
+                url: "/FAQ/Search",
+                data: { keyword: a },
+                success: function (data) {
+
+                    $("#result").empty();
+                    $("#result").append(data);
+                },
+                error: function () {
+                    alert('Loi')
+                }
+            })
+        })
+
+    })
+</script>
+
+<link href="~/Content/CSSTuChinh/HomeFAQ.css" rel="stylesheet" />
+@*Div ben trai*@
+<div class="DivLeftFAQ">
+    <div class="DivFrequent">Frequently Asked Questions</div>
+    <a href="@Url.Action("HomeFAQ", "FAQ", new { @MaTrang = "GENERAL" })"><div class="DivGeneral">GENERAL</div></a>
+    <a href="@Url.Action("HomeFAQ", "FAQ", new { @MaTrang = "REGISTRATION" })"><div class="DivGST">GST REGISTRATION APPLICATION</div></a>
+</div>
+@*Div ben phai*@
+<div class="DivRightFAQ">
+
+    
+        <div class="DivSearch"><span class="SpanSearch">@Html.TextBox("keyword","")<input type="button" value="Search" class="inputSearch" id="btnSearch" /></span></div>
+        <div id="result">
+
+        </div>
+       @{
+        <div class="DivContent" id="Divnoidung">
+            <div class="DivTitleFAQ">FAQ @ViewBag.LoaiTrangDangChon</div>
+            <div class="DivPleaseFAQ">Please click on the links below to view the sections</div>
+
+            <div class="DivTopicFAQ">
+                @foreach (var item in (List<ChuDeFAQ>)ViewBag.ListChuDe)
+                {
+                    <a href="@Url.Action("HomeFAQ", new { @MaChuDe = item.MaChuDeFAQ,@MaTrang = item.LoaiChuDeFAQ})">@item.TenChuDeFAQ</a><br />
+                }
+            </div>
+            <div style="margin:5px;border-top: solid 1px rgba(0,0,0,.1);"></div>
+            <div class="DivRegis">
+                @foreach (var item in (List<ChuDeFAQ>)ViewBag.ChuDeDangChon)
+                {
+                    @item.TenChuDeFAQ
+                }
+            </div>
+
+            @{int a = 0; int b = 0; string q = "Q"; string t = "A";}
+            <div>
+                @foreach (var item in (List<FAQ>)ViewBag.ListFAQ)
+                {
+                    a = a + 1;
+                    b = b + 1;
+                    <div class="DivQ">
+                        <span class="ChuQ">@q@a: </span>@item.Question
+                    </div>
+                    <div class="DivA">
+                        <span class="ChuA">@t@b: </span>@item.Answer
+                    </div>
+                    <div class="Dowload"><a href="~/FileTaiLieuFAQ/@item.FileName">DownLoad</a></div><br />
+                    <hr />
+                }
+            </div>
+        </div>
+    }
+    
+</div>

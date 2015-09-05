@@ -1,0 +1,47 @@
+﻿@using SetPortal.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<EGuide>
+@{
+    ViewBag.Title = "QuanLyEGuild";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/QuanLyEguild.css" rel="stylesheet" />
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="DivAllQLE">
+    <h2>QuanLyEGuild</h2>
+    <div class="DivThemEGuild"><a href="/Admin/AddEGuild"><input type="button" class="btn btn-primary" value="Thêm mới E-Guild" /></a></div>
+    <div class="divstt2">STT</div><div class="divten2">Tên chủ đề</div><div class="divnoidung2"> Nội dung</div><br /><br />
+    @{int dem2 = (Model.PageNumber -1) *9;}
+    @foreach (var item in Model)
+    {
+        dem2 = dem2 + 1;
+        <div class="divstt">@dem2</div>
+        <div class="divten">@item.ChuDeEGuide.TenChuDeEguide</div>
+        if (item.Contents.Length < 50)
+        {
+            <div class="divnoidung" id="TenSach" title="@item.Contents">@item.Contents.</div>
+        }
+        else
+        {
+            <div class="divnoidung" id="TenSach" title="@item.Contents"> @item.Contents.Substring(0, 50) ...</div>
+        }
+        <div class="nutbutton"><span class="nutSuaeguild">@Html.ActionLink("Sua", "SuaEguild", new { id = item.EGuildID })</span>@Html.ActionLink("Xoa", "XoaEguild", new { id = item.EGuildID })</div>
+    }
+
+
+
+
+</div>
+<div style="clear:both"></div>
+@* Tạo link liên kết các trang*@
+<div class="DivPage">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("QuanLyEGuild", new { page = page }))
+    </div>
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

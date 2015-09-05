@@ -1,0 +1,41 @@
+﻿@using SetPortal.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<Enew>
+@{
+    ViewBag.Title = "HomeEnew";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/HomeEnew.css" rel="stylesheet" />
+
+<div class="titleenew"><a href="/Home/Index">Home</a>><a href="/ENew/HomeEnew">Enew</a></div>
+<div class="DivAllEnew">
+    <br />
+    @foreach (var item in Model)
+    {
+        if (item.EnewsTitle.Length < 100)
+        {
+            <div class="NDEnew"><i class="fa fa-caret-right"></i>@Html.ActionLink(item.EnewsTitle, "DetailEnew", new {id=item.EnewsID }) - @item.PublishDate</div><br />
+        }
+        else
+        {
+            <div class="NDEnew"><i class="fa fa-caret-right"></i>@Html.ActionLink(item.EnewsTitle, "DetailEnew", new { id = item.EnewsID }) @item.PublishDate</div><br />
+        }
+
+    }
+    <div style="clear:both"></div><br />
+    @* Tạo link liên kết các trang*@
+    <div class="DivPage">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("HomeEnew", new { page = page }))
+        </div>
+    </div>
+    <div class="Archived"><a href="/ENew/ArchivedEnew">Archived e-News</a></div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+</div>
+
+

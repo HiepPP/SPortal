@@ -1,0 +1,122 @@
+﻿.DivToanTrangLogin {
+   
+    margin-top: -1.8%;
+    margin-bottom: -0.8%;
+    margin-left:160px;
+}
+
+    .DivToanTrangLogin a {
+        text-decoration: none;
+        
+    }
+
+.DivTitleLogin {
+    margin-right: 5px;
+    text-align: left;
+    font-size: 22px;
+    font-weight: 600;
+    color: #A2A2A2;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    border-bottom: groove 1px;
+}
+
+#IconLogin2 {
+    padding: 5px;
+}
+
+.DivLogin2 {
+    width: 688px;
+    height: 410px;
+    border: groove 1px;
+    border-bottom: none;
+    margin-bottom: 5px;
+}
+
+#slider {
+    margin-top: 2px;
+    width: 684px;
+    height: 160px;
+}
+
+.DivLeftLogin {
+    float: left;
+    width: 55%;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+.DivRightLogin {
+    width: 45%;
+    float: right;
+    background: #F1F1F1;
+    height: 250px;
+}
+
+.DivMem {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #0094ff;
+}
+
+.DivMax16 {
+    color: red;
+    padding: 6px;
+    margin-left: 30px;
+}
+
+.DivMax8 {
+    color: red;
+    padding: 6px;
+    margin-left: 25px;
+}
+
+.DivBut {
+    padding: 4px;
+    padding-left: 45px;
+}
+
+.SubmitLogin {
+    width: 70px;
+    height: 28px;
+    background-color: #014F8F;
+    color: #EFFB5B;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.DivCuoi {
+    margin-bottom: 10px;
+}
+
+.divTaiKhoan {
+    margin-left: 16px;
+    margin-bottom: -1%;
+    margin-top: -30px;
+}
+
+.divMatKhau {
+    margin-bottom: -1%;
+}
+
+.divTieuDeFirst {
+    color: #007aff;
+    font-size: 30px;
+    width: 996px;
+    float: left;
+}
+
+.divFirstTimeLoGin {
+    height: auto;
+}
+
+.ErrorsLogin {
+    text-align: left;
+    margin-left: 25px;
+    margin-top: -5px;
+}
+.divViewThongBao{
+    margin-bottom:20px;
+    color:red;
+}

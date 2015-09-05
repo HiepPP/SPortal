@@ -1,0 +1,252 @@
+﻿body{
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family:Cambria;
+}
+.DivToanTrang{
+    width:996px;
+}
+.DivToanTrang a:hover{
+    text-decoration:none;
+}
+.HinhLogo {
+    width: 996px;
+    height: 100px;
+    background: url(img/MainPage_SetPortal2.jpg) no-repeat bottom left;
+    background-size:cover;
+}
+.Divmenu{
+    width: 996px;
+    height:40px;
+    background-color: #0055A8;
+    border-radius: 5px; 
+
+}
+.MenuChinh{
+    float:left;
+    padding-left:6px;
+}
+.MenuChinh a{
+    border-right:solid 1px rgba(0,0,0,.5);
+    font-size:16px;
+    text-decoration:none;
+    float:left;
+    color:#fff;
+    padding:9px;
+    transition:all .5s ease-out;
+}
+.MenuChinh a:hover{
+    background-color:rgba(0,0,0,.5);
+    transition:all .5s ease-out;
+}
+.txtTimKiem{
+    width:380px;
+    background-color:#043465;
+    float:right;
+    padding:6px;
+    color:#fff;
+    padding-bottom:8px;
+    text-align:left;
+}
+.SelectSearch{
+    width:100px;
+    height:25px;
+}
+.TextBoxTimKiem{
+    width:127px;
+    height:20px;
+}
+.BtnTimKiem{
+    width:50px;
+    height:25px;
+    background-color:#FDFEAE;
+}
+.BtnTimKiem:hover{
+    background-color:#FFF900;
+    transition:all .5s ease-out;
+}
+.Divmenu2{
+    height:41px;
+    background-color:#C3E2F4;
+    margin-top:-1.8%;
+    padding-left:15px;
+}
+.Divmenu2 a{
+    float:right;
+    font-size:20px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:12px;
+    color:#FFF900;
+    text-decoration:none;
+    -moz-border-radius: 0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    transition:all .5s ease-out;
+}
+.Divmenu2 a:hover{
+    background-color:rgba(0,0,0,.5);
+    transition:all .5s ease-out;
+}
+.NgayThang{
+    padding-top:10px;
+    float:left;
+}
+.ACore{
+    background-color:#07354D;
+}
+.ACall{
+    background-color:#044B73;
+    
+}
+.AInfo{
+    background-color:#096CA6;
+    
+}
+.AGuide{
+    background-color:#1787C1;
+}
+.AFAQ{
+    background-color:#49B0EB;
+    
+}
+.Login{
+    margin-bottom:20px;
+    width:220px;
+    border:5px solid #999;
+    border-color:#BBE6EF;
+    border-radius:8px;
+    background:#7EC0E2;
+    padding-left:5px;
+}
+.Login a{
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    padding-left:4px;
+}
+.Login a:hover{
+    background-color:#1787C1;
+}
+.Login legend{
+    width:100px;
+    font-size:20px;
+    font-weight:600;
+    background:#fff;
+    color:#DD6260;
+    border: 15px;
+    margin-bottom:5px;
+}
+.AllGroup{
+    margin-bottom:20px;
+    width:220px;
+    border:5px solid #999;
+    border-color:#BBE6EF;
+    border-radius:8px;
+    padding-left:5px;
+    
+}
+.AllGroup a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight: 700;
+    line-height:20px;
+    padding-left:4px;
+}
+.AllGroup a:hover{
+    background-color:#C3E2F4;
+}
+.AllGroup legend{
+    width:auto;
+    margin-bottom:0px;
+    color:#64A3BB;
+    font-size:13px;
+    background:#fff;
+    border: 15px;
+    font-weight: 700;
+}
+
+.ThePAnnoun {
+    margin-top:-2%;
+    margin-bottom:-1%;
+}
+.ThePAnnoun a{
+    color:#65ADD3;
+}
+#IconLogin{
+    text-align:center;
+   
+    width: 30px;
+    height: 23px;
+    border: 15px;
+}
+.DivLeft{
+    float:left;
+    width:250px;
+    padding-left:5px;
+    text-align:left;
+    margin-top:30px;
+}
+.DivCenter{
+    margin-top:45px;
+    width:735px;
+    float:left;
+    height:auto;
+    text-align:left;
+}
+.TheAGovement{
+}
+.TheAGovement a{
+    height:30px;
+    width:124px;
+    text-decoration:none;
+    color:#3B3038;
+    background-color:#CED3E9;
+    padding-left:12px;
+    padding-top:4px;
+    font-size:20px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+    margin-left:20px;
+    font-weight:600;
+}
+.TheAGovement a:hover{
+    background-color:rgba(0,0,0,.5);
+}
+.HinhGovement{
+    margin-top:-2%;
+}
+.DivBottom{
+    width:996px;
+    height:60px;
+    float:left;
+    background-color:#006599;
+    padding-top:17px;
+    text-align:left;
+    margin-top:20px;
+}
+.TheADivBottom{
+    width:500px;
+    float:left;
+}
+.TheADivBottom a{
+    text-decoration:none;
+    color:#fff;
+    border-right:solid 1px rgba(0,0,0,.5);
+    padding-right:9px;
+    padding-left:9px;
+    transition:all .5s ease-out;
+}
+.TheADivBottom a:hover {
+    background-color:rgba(0,0,0,.5);
+    transition:all .5s ease-out;
+    }
+.RightDivBottom{
+    float:right;
+    padding-right:30px;
+    color:#fff;
+}
+.validation-summary-errors{
+    color:red;
+}

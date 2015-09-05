@@ -1,0 +1,176 @@
+﻿@model SetPortal.Models.ContactWithU
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/ContactUs.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+
+<style>
+    .FunctionForLogin {
+        display: none;
+    }
+
+    #FunctionForLogin {
+        display: none;
+    }
+</style>
+@using (Html.BeginForm("ContactUsPublicUser", "ContactUs", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="DivAllContact">
+        <div class="DivTitleContact">Contact Us</div>
+        <div class="Divlbu">lbu Pejabat Kastam Diraja Malaysia</div>
+
+        <div class="DivKeBlok">
+            <div class="DivKetua">Ketua Pengarah <br /> Kastam &nbsp;</div><div class="DivBlok">Blok 2G1B, Kompleks Kementerian Kewangan Presint 2, Pusat Pentadbiran Kerajaan Persekutuan <br />Putrajaya<br />Malaysia<br />62592</div>
+        </div>
+
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Tel &nbsp;</div><div class="DivBlok">+60388822100</div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Fax &nbsp;</div><div class="DivBlok">+60388895901</div>
+        </div>
+        @*Day la bat dau Pusat*@
+        <div class="Divlbu">Pusat Panggilan Kastam Diraja Malaysia</div>
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Tel &nbsp;</div><div class="DivBlok">1800-xxxx-xxx</div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Fax &nbsp;</div><div class="DivBlok">03-xxx xxxx</div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Email &nbsp;</div><div class="DivMail">info@customs.gov.my</div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua2">Calling Hours &nbsp;</div><div class="DivBlok">8.30a.m - 5.30p.m (Monday - Friday encept)</div>
+        </div>
+        @*Day la bat dau Send Email*@
+        <div class="Divlbu">Send Email</div>
+        <div class="DivKeBlok">
+            Send us your comment or feedback by email.<br />
+            We will try our best to reply to you as soon as possible. Thank you.
+        </div>
+
+        <div class="DivKeBlok">
+            <div class="DivKetua7">Name &nbsp;</div><div class="DivBlokName">@Html.TextBoxFor(model => model.Name, new { @class = "form-control" })<span id="loiName"></span></div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua20">Your email Address &nbsp;</div><div class="DivMail">@Html.TextBoxFor(model => model.Email, new { @class = "form-control" })<span id="loiEmail">@Html.ValidationMessageFor(model=>model.Email)</span></div>
+        </div>
+        <div class="DivKeBlokSubject">
+            <div class="DivKetua3">Please provide subject to your email &nbsp;</div><div class="DivBlok">@Html.TextBoxFor(model => model.SubjectEmail, new { @class = "form-control" })<span id="loiSubject"></span></div><br />
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivKetua8">Hours of operation &nbsp;</div><div class="DivBlokHour">Monday - Friday 8.00p.m (Malaysa Time)</div>
+        </div>
+        @*Khung nhap lieu cho nguoi dung*@
+        <div class="Divlbu">@Html.TextAreaFor(model => model.ContentEmail, new { @class = "form-control" })<span id="loiContent"></span></div>
+        <div class="Divlbu2">
+            <span class="Note">Note:</span>&nbsp;Please do not provide any personal identification such as Taxpayer Identification Number, Personal Identification Number or Address.
+            For security seasons we cannot answer questions about your account over the internet...
+        </div>
+        @*bat dau Div Attach*@
+        <div class="DivKeBlok">
+            <div class="DivKetua4">Attach &nbsp;</div>
+            <div class="DivImage">
+                <input type="file" style="margin-top:5px" name="fileUpload" id="fileup" />
+                <div id="loiName2">@ViewBag.ThongBao</div>
+            </div>
+        </div>
+        <div class="DivKeBlok">
+            <div class="DivBlok"><input class="inputFile" id="Clear" type="button" value="Clear" /><input id="Submit" class="inputFile" type="submit" value="Send" /></div>
+        </div>
+    </div>
+}
+<div style="margin-left:520px;margin-top:30px;">
+    @Html.Partial("~/Views/MenuLeftAndRight/MenuRightPartial.cshtml")
+</div>
+@*Script nut Clear*@
+<script type="text/javascript">
+    $('#Clear').click(function () {
+        $('#Name').val('')
+        $('#Email').val('')
+        $('#SubjectEmail').val('')
+        $('#ContentEmail').val('')
+        $('#fileup').val('')
+    })
+</script>
+@*Script kiem tra loi nhap lieu*@
+<script type="text/javascript">
+    $('#Submit').click(function () {
+        var loi = 0;
+        //Kiem tra Name < 6 ky tu
+        if ($('#Name').val().length < 6) {
+            $('#loiName').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Name > 100 ky tu
+            if ($('#Name').val().length > 60) {
+                $('#loiName').text('Nhập < 60 ký tự!')
+                loi++
+            }
+            else {
+                $('#loiName').text('')
+            }
+        }
+        //Kiem tra Subject Email < 6 ky tu
+        if ($('#Email').val().length < 6) {
+            $('#loiEmail').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Subject Email > 100 ky tu
+            if ($('#Email').val().length > 100) {
+                $('#loiEmail').text('Nhập < 100 ký tự!')
+                loi++
+            }
+            else {
+                $('#loiEmail').text('')
+            }
+        }
+        //Kiem tra Subject Email < 6 ky tu
+        if ($('#SubjectEmail').val().length < 6) {
+            $('#loiSubject').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Subject Email > 100 ky tu
+            if ($('#SubjectEmail').val().length > 100) {
+                $('#loiSubject').text('Nhập < 100 ký tự!')
+                loi++
+            }
+            else {
+                $('#loiSubject').text('')
+            }
+        }
+        //Kiem tra Subject Email < 6 ky tu
+        if ($('#ContentEmail').val().length < 6) {
+            $('#loiContent').text('Nhập 6 ký tự trở lên!')
+            loi++
+        }
+        else {
+            //Kiem tra Subject Email > 100 ky tu
+            if ($('#ContentEmail').val().length > 300) {
+                $('#loiContent').text('Nhập < 300 ký tự!')
+                loi++
+            }
+            else {
+                $('#loiContent').text('')
+            }
+        }
+        //if($('#fileup').val(''))
+        //{
+        //    $('#loiName2').text('Vui lòng chọn File!')
+        //    loi++;
+        //}
+        //Tong hop loi
+        if (loi == 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+</script>

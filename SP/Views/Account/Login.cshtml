@@ -1,0 +1,72 @@
+﻿@model SetPortal.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+
+@*Font awesome*@
+<link href="~/Content/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+@*CSS for login layout*@
+<link href="~/Content/CSSTuChinh/Login.css" rel="stylesheet" />
+@*Nivo slider*@
+<script src="~/Content/Nivo-Slider-master/demo/scripts/jquery-1.9.0.min.js"></script>
+<script src="~/Content/Nivo-Slider-master/jquery.nivo.slider.js"></script>
+<script src="~/Content/Nivo-Slider-master/jquery.nivo.slider.pack.js"></script>
+<link href="~/Content/Nivo-Slider-master/nivo-slider.css" rel="stylesheet" />
+<style>
+    .DivLeft{
+        display:none;
+    }
+</style>
+<div class="DivToanTrangLogin">
+    <div class="DivTitleLogin"><i class="fa fa-unlock-alt" id="IconLogin2"></i>Login to MyGSeT Portal</div>
+    <div class="DivLogin2">
+        @*Chèn div nivoslider*@
+        <div id="slider" class="nivoSlider">
+            <img src="~/Content/CSSTuChinh/img/HinhLogin.jpg" />
+            <img src="~/Content/CSSTuChinh/img/login2.jpg" />
+            <img src="~/Content/CSSTuChinh/img/login3.jpg" />
+        </div>
+        <div class="DivLeftLogin">
+            <p>Enter your Shgle Sign-On User ID and password to login</p>
+            <p>Authentication failed. Please try again</p>
+            <p>If you have forgotten your password. <a href="#">Click here</a></p>
+        </div>
+        @using (Html.BeginForm("Login","Account",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="DivRightLogin">
+                <div class="DivMem">MEMBER LOGIN</div>
+                <div class="ErrorsLogin">@Html.ValidationSummary(true)</div>
+                <div class="divViewThongBao">@ViewBag.Error</div><br />
+                <div class="divTaiKhoan">User ID @Html.TextBoxFor(x => x.UserID)</div>
+                <div class="DivMax16"></div>
+                <div class="divMatKhau">Password @Html.PasswordFor(x => x.UserPassword)</div>
+                <div class="DivMax8"></div>
+                <div class="DivBut"><input class="SubmitLogin" type="submit" value="Submit" />  <input class="SubmitLogin" id="buttonclear" type=button value="Clear" />  </div>
+                <div>Forgot Password</div>
+            </div>
+        }
+    </div>
+    <div class="DivCuoi">Don't worry when you are not recognized, but strive to be worthy of recognition.</div>
+</div>
+<script type="text/javascript">
+    $('#buttonclear').click(function () {
+
+        $('#UserID').val('')
+        $('#UserPassword').val('')
+
+
+    })
+</script>
+@*Script Chạy nivoslider*@
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#slider').nivoSlider({
+            controlNav: false,               // 1,2,3... navigation
+            nextText: '',
+            prevText: ''
+        });
+    });
+</script>

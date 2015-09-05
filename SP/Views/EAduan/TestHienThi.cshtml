@@ -1,0 +1,14 @@
+﻿@using SetPortal.Models;
+@model List<EAduan>
+@{
+    ViewBag.Title = "TestHienThi";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>TestHienThi</h2>
+@foreach (var item in Model)
+{
+  <div>@item.NameState.State</div>
+    <div><img src="@Url.Content("~/HinhAnhEAduan/"+item.Image)" width="80" height="120" /></div>
+}
+

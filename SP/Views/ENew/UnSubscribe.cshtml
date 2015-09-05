@@ -1,0 +1,34 @@
+﻿@model SetPortal.Models.EmailSubcribeEnew
+@{
+    ViewBag.Title = "Subscribe";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/UnSubscribe .css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@using (Html.BeginForm())
+{
+    <div class="Div1"><a href="/Home/Index">Home</a>><a href="/ENew/UnSubscribe">Unsubscribe MyGSet e-News</a></div>
+    <div class="DivAllSub">
+        <div class="Div10">Unsubscribe from MyGSet e-News</div>
+        <hr />
+        <div class="Div2">If you wish to stop receiving news alert to your e-mail please following to unsubscribe from our e-News.</div>
+        <div class="Div3"><div class="Span1">To UnSubscribe</div></div><div class="Div4">Enter your e-mail address in the below and click on Submit. To clear any infomation, click on Clear button.</div>
+        <div class="Div3"><div class="Span2">Note</div></div><div class="Div4">We will stop sending your e-News alert to your e-mail address. You may subscribe again at later time.</div>
+        @{if (Session["Email"] != null)
+        {
+            string email = Session["Email"].ToString();
+            <div class="Div6"><div class="Span3">E-mail Address</div></div><div class="Div7">@Html.TextBox("EmailSubcribe", Session["Email"].ToString(), new { @class = "form-control", @readonly = true })<span class="LoiEmail">@ViewBag.thongbao</span></div>
+        }
+        else
+        {
+            <div class="Div6"><div class="Span3">E-mail Address</div></div><div class="Div7">@Html.TextBoxFor(model => model.EmailSubcribe, new { @class = "form-control" })<span class="LoiEmail">@Html.ValidationMessageFor(model => model.EmailSubcribe)@ViewBag.thongbao</span></div>
+        }
+        }
+        <div class="Div5"><input id="Clear" class="btn btn-primary" value="Clear" type="button" /><input class="btn btn-primary" value="Submit" type="submit" /></div>
+    </div>
+}
+<script type="text/javascript">
+    $('#Clear').click(function () {
+        $('#EmailSubcribe').val('')
+    })
+</script>

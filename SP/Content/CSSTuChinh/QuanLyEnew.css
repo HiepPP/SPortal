@@ -1,0 +1,95 @@
+﻿.divstt {
+    width: 180px;
+    float: left;
+    text-align: left;
+}
+
+.divten {
+    width: 130px;
+    float: left;
+    text-align: left;
+}
+
+.divnoidung {
+    width: 400px;
+    float: left;
+    
+    text-align: justify;
+}
+
+.divstt2 {
+    margin-bottom: 10px;
+    width: 60px;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.divten2 {
+    margin-bottom: 10px;
+    width: 150px;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 25px;
+}
+
+.divnoidung2 {
+    margin-bottom: 10px;
+    width: 330px;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    font-size: 17px;
+    margin-left: 50px;
+}
+
+.DivAllQLE {
+    margin-left: 50px;
+}
+
+.nutbutton {
+    float: left;
+    width: 230px;
+    text-align: left;
+    margin-bottom: 10px;
+    font-size:16px;
+}
+
+    .nutbutton a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .nutbutton a:hover {
+            background-color: rgba(0,0,0,.5);
+        }
+
+.buttone {
+    height: 25px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+.buttone:hover{
+    background-color: rgba(0,0,0,.3);
+}
+.DivPage {
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.MenuTrang {
+    margin-top: -15px;
+}
+
+.DivThemEGuild {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left:50px;
+}
+.nutSuaeguild {
+    margin-right: 10px;
+}

@@ -1,0 +1,57 @@
+﻿@model SetPortal.Models.EGuide
+
+@{
+    ViewBag.Title = "AddEGuild";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/AddEguild.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+@using (Html.BeginForm())
+{
+    <div>
+        <h4>Add New E-Guild</h4>
+        <hr />
+
+        <div>
+            <div class="chude">Chủ đề của E-guild: </div><div class="chude1">@Html.DropDownList("MaChuDeEguide", (IEnumerable<SelectListItem>)ViewBag.MaChuDeEguide,"", new {@class="form-control" })<span id="loimachude"></span></div>
+        </div><br /><br /><br />
+       
+        <div>
+            <div class="ndEguild">Nội dung của E-guild : </div><div class="ndEguild1">@Html.TextAreaFor(model => model.Contents, new { @class = "form-control" })<span id="loicontentsadd"></span></div>
+        </div><br /><br /><br /><br /><br /><br /><br /><br />
+
+            <div class="submiteguild">
+                <input type="submit" id="submitadd" class="btn btn-primary" value="Create" /><a href="/Admin/QuanLyEguild"><input class="btn btn-primary" id="quayve" type="button" value="Quản lý Eguild" /></a>
+            </div>
+    </div>
+}
+<script type="text/javascript">
+    $('#submitadd').click(function () {
+        var loi = 0;
+        //kiem tra MaChuDe
+        if($('#MaChuDeEguide').val() == '')
+        {
+            loi++;
+            $('#loimachude').text('Vui long chon chu de!')
+        }
+        else {
+            $('#loimachude').text('')
+        }
+        //Kiem tra Contents
+        if ($('#Contents').val().length < 6)
+        {
+            loi++
+            $('#loicontentsadd').text('Noi dung phai lon hon 6 ky tu!')
+        }
+        else {
+            $('#loicontentsadd').text('')
+        }
+        if(loi==0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+</script>

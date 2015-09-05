@@ -1,0 +1,79 @@
+﻿@using SetPortal.Models
+@{
+    ViewBag.Title = "HomeEguild";
+    Layout = "~/Views/Layout/FAQLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/HomeFAQ.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            $("#Divnoidung").remove();
+            var a = $("#keyword").val();
+            $.ajax({
+                url: "/EGuild/Search",
+                data: { keyword: a },
+                success: function (data) {
+
+                    $("#result").empty();
+                    $("#result").append(data);
+                },
+                error: function () {
+                    alert('Loi')
+                }
+            })
+        })
+
+    })
+</script>
+@*Div ben trai*@
+<div class="DivLeftFAQ">
+    <div class="DivFrequent">e-Guild</div>
+    <a href="@Url.Action("HomeEGuild", "EGuild", new { @MaTrang = "GENERAL" })"><div class="DivGeneral">GENERAL</div></a>
+    <a href="@Url.Action("HomeEGuild", "EGuild", new { @MaTrang = "REGISTRATION" })"><div class="DivGST">GST REGISTRATION APPLICATION</div></a>
+</div>
+@*Div ben phai*@
+<div class="DivRightFAQ">
+
+
+   
+    <div class="DivSearch"><span class="SpanSearch">@Html.TextBox("keyword","", new { @id = "keyword" })<input type="button" value="Search" class="inputSearch" id="btnSearch" /></span></div>
+        <div id="result">
+
+        </div>
+    
+        @{
+           
+                <div class="DivContent" id="Divnoidung">
+                    <div class="DivTitleFAQ">e-Guild @ViewBag.LoaiTrangDangChon</div>
+                    <div class="DivPleaseFAQ">Please click on the links below to view the sections</div>
+
+                    <div class="DivTopicFAQ">
+                        @foreach (var item in (List<ChuDeEGuide>)ViewBag.ListChuDe)
+                        {
+                            <a href="@Url.Action("HomeEGuild", new { @MaChuDe = item.MaChuDeEguide,@MaTrang = item.LoaiChuDeEguide})">@item.TenChuDeEguide</a><br />
+                        }
+                    </div>
+                    <div style="margin:5px;border-top: solid 1px rgba(0,0,0,.1);"></div>
+                    <div class="DivRegis">
+                        @foreach (var item in (List<ChuDeEGuide>)ViewBag.ChuDeDangChon)
+                        {
+                            @item.TenChuDeEguide
+                        }
+                    </div>
+
+
+                    <div>
+                        @foreach (var item in (List<EGuide>)ViewBag.ListEGuild)
+                        {
+                            <div class="DivA">
+                                @item.Contents
+                            </div>
+                            <div class="Dowload"><a href="~/FileTaiLieuEGuild/@item.FileName">DownLoad</a></div><br />
+                            <hr />
+                        }
+                    </div>
+                </div>
+            }
+        
+</div>

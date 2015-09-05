@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SetPortal.Models.User>
+@{
+    ViewBag.Title = "UnlockUser";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    <link href="~/Content/CSSTuChinh/UnlockTable.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+}
+@ViewBag.message
+<h2>UnlockUser</h2>
+<style>
+    .DivLeft {
+        display: none;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">List banned user</th>
+        </tr>
+        <tr>
+            <th>UserID</th>
+            <th colspan="2">Times login fail</th>
+        </tr>
+    </thead>
+@using (Html.BeginForm())
+{
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+            <td>@item.UserID</td>
+            <td>@item.TimesLoginFail</td>
+            <td>
+                <i class="fa fa-unlock"><input type="submit" id="unlock" value="Unlock"/> </i>
+            </td>
+        </tr>
+        }
+    </tbody>
+}
+</table>

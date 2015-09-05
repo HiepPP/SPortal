@@ -1,0 +1,16 @@
+﻿@model SetPortal.Models.ViewModel.SearchViewModel
+@using (Html.BeginForm("SearchResult","Search",FormMethod.Post))
+{
+<span>Search</span>
+@*<select class="SelectSearch" id="timkiem">
+    <option value="GST" id="gst">All GST</option>
+    <option value="FAQs" id="faq">FAQs</option>
+    <option value="eGuide" id="eguide">eGuide</option>
+</select>*@
+@*@Html.DropDownList("dropdownlist", new SelectList(new[] { "AllGST", "FAQs", "eGuide" }))*@
+@Html.DropDownListFor(x => x.dropdown, new SelectList(new[] { "-Select-", "FAQs", "eGuide" }))
+<span>for</span>
+@*@Html.TextBox("txtSearch", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhap tu khoa can tim" })*@
+    @Html.TextBoxFor(x => x.tukhoa, "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhap tu khoa can tim" })
+<button class="BtnTimKiem">Go</button>
+}

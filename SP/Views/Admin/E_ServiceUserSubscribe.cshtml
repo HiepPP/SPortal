@@ -1,0 +1,30 @@
+﻿@using SetPortal.Models
+@using PagedList.Mvc
+@model PagedList.IPagedList<EmailSubcribeEnew>
+@{
+    ViewBag.Title = "E_ServiceUserSubscribe";
+    Layout = "~/Views/Layout/LoginLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/QuanLyEguild.css" rel="stylesheet" />
+
+<h2>Public User Subscribe List</h2>
+<div class="divstt2">STT</div><div class="divten2">Email Subscribe</div><div class="divnoidung22">UserID</div><br /><br />
+@{int dem2 = (Model.PageNumber - 1) * 9;}
+@foreach (var item in Model)
+{
+    dem2 = dem2 + 1;
+    <div class="divsttEmail">@dem2</div>
+    <div class="divtenEmail">@item.EmailSubcribe</div>
+    <div class="divnoidungEmail" id="TenSach">@item.UserID</div>
+    <div class="divnoidungEmail2" id="TenSach">@Html.ActionLink("Xoa", "XoaEmailSubscribe", new { id = item.IDEmail })</div>
+    <br />
+}
+<div style="clear:both"></div>
+@* Tạo link liên kết các trang*@
+<div class="DivPage">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/ @Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("E_ServiceUserSubscribe", new { page = page }))
+    </div>
+</div>
+<div class="Cancel"><a href="/Admin/QuanLyEmailSubcribe"><input type="button" class="Cencelbutton" value="Cancel" /></a></div>

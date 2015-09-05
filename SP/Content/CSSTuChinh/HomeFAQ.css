@@ -1,0 +1,162 @@
+﻿.ACall {
+    display: none;
+}
+
+.ACore {
+    display: none;
+}
+
+.FunctionForLogin {
+    display: none;
+}
+
+#FunctionForLogin {
+    display: none;
+}
+
+.DivRight {
+    display: none;
+}
+
+.DivLeftFAQ {
+    float: left;
+    width: 250px;
+    height: auto;
+    border: solid 1px rgba(0,0,0,.1);
+    border-radius: 4px;
+}
+
+.DivRightFAQ {
+    float: right;
+    width: 470px;
+}
+
+.DivContent {
+    height: auto;
+    border: solid 1px rgba(0,0,0,.1);
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.DivFrequent {
+    margin-left: 10px;
+    margin-top: 2px;
+    font-size: 18px;
+    color: #93B5BA;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.DivGeneral {
+    height: 30px;
+    background-color: #C1DFE7;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    color: #123F54;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+    .DivGeneral:hover {
+        background-color: rgba(0,0,0,.4);
+    }
+
+.DivGST:hover {
+    background-color: rgba(0,0,0,.4);
+}
+
+.DivLeftFAQ a {
+    text-decoration: none;
+}
+
+.DivGST {
+    height: 30px;
+    background-color: #C1DFE7;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    color: #123F54;
+    font-size: 14px;
+}
+
+.DivSearch {
+    background-color: #C1DFE7;
+    height: 30px;
+    padding-top:5px;
+}
+.SpanSearch{
+    margin-left:10px;
+}
+#keyword{
+    width:250px;
+    height:20px;
+}
+.inputSearch{
+    margin-left:2px;
+    height:25px;
+    width:70px;
+}
+.DivTopicFAQ {
+    color: #4b63f3;
+    margin-left: 50px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.DivQ {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 7px;
+    font-size:14px;
+    text-align:justify;
+}
+
+.DivA {
+    font-size:14px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    text-align:justify;
+}
+
+.DivRegis {
+    color: #4b63f3;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom:5px;
+}
+
+.DivTitleFAQ {
+    color: #4b63f3;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.DivPleaseFAQ {
+    margin-left: 20px;
+    color: #9F9F9F;
+}
+
+.DivTopicFAQ a {
+    text-decoration: none;
+    color: #4b63f3;
+}
+
+    .DivTopicFAQ a:hover {
+        color: rgb(128, 128, 128);
+    }
+.ChuQ{
+    color: #4b63f3;
+    font-weight:bold;
+}
+.ChuA{
+    color: #4b63f3;
+    font-weight:bold;
+}
+.Dowload a{
+    text-decoration:none;
+    float:right;
+    margin-right:20px;
+}

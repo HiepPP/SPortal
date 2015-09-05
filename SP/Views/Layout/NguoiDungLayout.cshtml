@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/CSSTuChinh/NguoiDungLayoutCss.css" rel="stylesheet" />
+    <link href="~/Content/Fontfortawesome/css/font-awesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <center>
+        <div class="DivToanTrang">
+            @*Day la Hinh Logo*@
+            <div class="HinhLogo"></div>
+            @*Day la Menu chinh*@
+            <div class="Divmenu">
+                <div class="MenuChinh">
+                    @Html.ActionLink("Bahasa malaysia", "Index", "Home")
+                    <a href="~/Home/Index">Home</a>
+                    <a href="#">About Us</a>
+                    @{
+                        if (Session["TaiKhoan"] == null)
+                        {
+                            <a href="/ContactUs/ContactUsPublicUser/">Contact Us</a>
+                        }
+                        else
+                        {
+                            <a href="/ContactUs/ContactUsKDRM/">Contact Us</a>
+                        }
+}
+
+                    <a href="#">Online Help</a>
+                    <a href="#">Site Map</a>
+                </div>
+                <div class="txtTimKiem">
+                        @Html.Action("SearchPartial","Search")
+                </div>
+            </div>
+            <br />
+            @*Day la Div menu2*@
+            <div class="Divmenu2">
+                <div class="NgayThang"> Tuesday, 24 June 2008, 11:47 PM</div>
+                <a class="AFAQ" href="/FAQ/HomeFAQ">FAQ</a>
+                <a class="AGuide" href="/EGuild/HomeEGuild">e-Guide</a>
+                <a class="AInfo" href="#">GST Info</a>
+                <a class="ACall" href="#">Call Center Knowledge</a>
+                <a class="ACore" href="#">Core Application</a>
+            </div>
+            <br />
+            @*Div chứa phần bên trái*@
+            <div class="DivLeft">
+                @Html.Partial("~/Views/MenuLeftAndRight/MenuLeftPartial.cshtml")
+            </div>
+            @*Div chứa phần giữa*@
+            <div class="DivCenter">
+                @RenderBody()
+            </div>
+
+            @*Day la phan Bottom cua trang web*@
+            <div class="DivBottom">
+                <div class="TheADivBottom">
+                    <a href="#">About This Site</a>
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="RightDivBottom">
+                    Visit KDRM Official Website<br />
+                    Copyright 2008 Portal Malaysia GST
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿@using SetPortal.Models
+@model List<Enew>
+@{
+    ViewBag.Title = "DetailEnew";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+<link href="~/Content/CSSTuChinh/DetailEnew.css" rel="stylesheet" />
+<div class="titleenew"><a href="/Home/Index">Home</a>><a href="/ENew/HomeEnew">Enew</a></div>
+@foreach(var item in Model)
+{ 
+<div>
+    <hr />
+    <div class="DivDetailTitle"><span class="DetailTitle">@item.EnewsTitle</span>&nbsp;-&nbsp;@item.PublishDate</div>
+    <div>@Html.Raw(item.EnewsContent)</div>
+</div>
+}
+<div class="Archived"><a href="/ENew/ArchivedEnew">Archived e-News</a></div>
+

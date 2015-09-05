@@ -1,0 +1,38 @@
+﻿
+
+
+@*Group Login*@
+<fieldset class="Login">
+    <legend><i class="fa fa-unlock-alt" id="IconLogin"></i>LOGIN</legend>
+    @if (Request.IsAuthenticated)
+        {
+        @Html.Encode(User.Identity.Name)
+        <i class="fa fa-caret-right"></i>@Html.ActionLink("Logout", "Logout", "Account")<br />
+        <i class="fa fa-caret-right"></i>@Html.ActionLink("Change Password", "ChangePass","Account")
+        }
+        else
+        {
+        <i class="fa fa-caret-right"></i>@Html.ActionLink("Login to MyGseT Portal", "Login", "Account")<br />
+        <i class="fa fa-caret-right"></i><a href="#">KDRM Single Sign On</a>
+        }
+</fieldset>
+@*Group Online Services*@
+<fieldset class="AllGroup">
+    <legend><i class="fa fa-unlock-alt" id="IconLogin"></i>ONLINE SERVICES</legend>
+    <i class="fa fa-caret-right"></i><a href="#">e-Registration</a><br />
+    <i class="fa fa-caret-right"></i><a href="#">Online Enquiry</a><br />
+    <i class="fa fa-caret-right"></i><a href="/EAduan/HomeEAduan">e-Aduan</a><br />
+    <i class="fa fa-caret-right"></i><a href="#">Forum</a><br />
+    <i class="fa fa-caret-right" id="FunctionForLogin"></i><a class="FunctionForLogin" href="#">e-Registration Canccellation</a><br class="FunctionForLogin" />
+    <i class="fa fa-caret-right" id="FunctionForLogin"></i><a class="FunctionForLogin" href="#">Update Profile</a><br class="FunctionForLogin" />
+    <i class="fa fa-caret-right" id="FunctionForLogin"></i><a class="FunctionForLogin" href="#">e-Return Submission</a>
+</fieldset>
+@*Group Gst Form/Templates*@
+<fieldset class="AllGroup">
+    <legend><i class="fa fa-unlock-alt" id="IconLogin"></i>GST FORMS/TEMPLATES</legend>
+    <i class="fa fa-caret-right"></i><a href="#">GST Forms</a><br />
+    <i class="fa fa-caret-right"></i><a href="#">GST Templates</a>
+</fieldset>
+@*Group e-News*@
+@Html.Action("MenuLeftEnew","Home")
+

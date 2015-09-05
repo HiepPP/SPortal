@@ -1,0 +1,20 @@
+﻿.DetailTitle {
+    color: blue;
+    font-weight: bold;
+
+}
+
+.DivDetailTitle {
+    margin-bottom: 10px;
+}
+
+.Archived {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.titleenew{
+    margin-top:40px;
+}
